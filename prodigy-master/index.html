@@ -224,17 +224,21 @@
 
 	<script>
 		function openCity(evt, cityName) {
-		  var i, tabcontent, tablinks;
-		  tabcontent = document.getElementsByClassName("tabcontent");
-		  for (i = 0; i < tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
+		  var i, tabcontent1,tabcontent2, tablinks;
+		  tabcontent1 = document.getElementsByClassName("tabcontent1");
+		  for (i = 0; i < tabcontent1.length; i++) {
+			tabcontent1[i].style.display = "none";
+		  }
+		  tabcontent2 = document.getElementsByClassName("tabcontent2");
+		  for (i = 0; i < tabcontent2.length; i++) {
+			tabcontent2[i].style.display = "none";
 		  }
 		  tablinks = document.getElementsByClassName("tablinks");
 		  for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
+			tablinks[i].className = tablinks[i].className.replace("active", "");
 		  }
 		  document.getElementById(cityName).style.display = "block";
-		  evt.currentTarget.className += " active";
+		  evt.currentTarget.className += "active";
 		}
 		</script>
 
@@ -305,22 +309,45 @@
 	
 	/* Change background color of buttons on hover */
 	.tab button:hover {
-	  background-color: dodgerblue;
+	  background-color: #dfae21;
 	}
 	
 	/* Create an active/current tablink class */
 	.tab button.active {
-	  background-color: dodgerblue;
+	  background-color: #dfae21;
 	}
 	
 	/* Style the tab content */
-	.tabcontent {
+	.tabcontent1 {
+	width: 100%!important;
+	/* display: none; */
+	}
+	.tabcontent2 {
 	width: 100%!important;
 	display: none;
 	}
 
 	.spacing {
 		margin-bottom: 20px;
+	}
+	.active, .tab button:hover{
+	
+	}
+
+	@media only screen and (max-width: 768px) {
+	.tab button {
+	  border-radius: 20px;
+	  outline: none;
+	  cursor: pointer;
+	  padding: 14px 16px;
+	  transition: 0.3s;
+	  font-size: 10px;
+	  color: floralwhite;
+	  background-color: transparent;
+	}
+	.active, .tab button:hover{
+	
+}
 	}
 	</style>
 
@@ -513,7 +540,7 @@
 						<div class="row">
 							<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<button class="tablinks" onclick="openCity(event, 'London')">Friday<br>February 21, 2020</button>
+								<button class="tablinks active" onclick="openCity(event, 'London')">Friday<br>February 21, 2020</button>
 					            <button class="tablinks" onclick="openCity(event, 'Paris')">Saturday<br>February 22, 2020</button>
 							</div>
 							<div class="col-md-3"></div>
@@ -523,7 +550,7 @@
 				  </div>
 				  
 				  <!-- PILLS 1 -->
-				  <div id="London" class="tabcontent">
+				  <div id="London" class="tabcontent1">
 					<div class="tab-pane fade show active" id="London" role="tabpanel" aria-labelledby="ex1-tab-1">
 						<div class="swiper-container slide-services wow fadeInUp" data-wow-delay="0.5s">
 							<div class="swiper-wrapper">
@@ -653,7 +680,7 @@
 				  </div>
 				  
 				  <!-- PILLS 2 -->
-				  <div id="Paris" class="tabcontent">
+				  <div id="Paris" class="tabcontent2">
 					<div class="tab-pane fade show active" id="Paris" role="tabpanel" aria-labelledby="ex1-tab-1">
 						<div class="swiper-container slide-services wow fadeInUp" data-wow-delay="0.5s">
 							<div class="swiper-wrapper">
